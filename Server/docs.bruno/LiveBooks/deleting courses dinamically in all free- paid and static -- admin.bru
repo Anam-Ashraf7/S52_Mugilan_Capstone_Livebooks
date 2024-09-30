@@ -1,0 +1,17 @@
+meta {
+  name: deleting courses dinamically in all free- paid and static -- admin
+  type: http
+  seq: 11
+}
+
+delete {
+  url: http://localhost:4000/api/delete-course/660946192b03497f174d4de4
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "course":"paidCourse"
+  }
+}

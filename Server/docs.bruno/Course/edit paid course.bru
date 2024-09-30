@@ -1,0 +1,94 @@
+meta {
+  name: edit paid course
+  type: http
+  seq: 15
+}
+
+put {
+  url: http://localhost:4000/api/course/edit/paid/6615097056d5ff101d5d6e62
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Mugilan",
+    "description": "Introduction to JavaScript",
+    "thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocKIofKbxFJTemOXZFHjE5eQPG22V-35M-JbN0EKkxS2OiVDzJli=s128-c",
+    "tag": "mugi",
+    "level": "Beginner",
+    "module": [
+      {
+        "heading": "JavaScript mufgilan ",
+        "subHeading": "Introduction to JavaScript",
+        "videos": [
+          {
+            "videoUrl": "https://example.com/video3.mp4",
+            "videoThumbnail": "https://lh3.googleusercontent.com/a/ACg8ocKIofKbxFJTemOXZFHjE5eQPG22V-35M-JbN0EKkxS2OiVDzJli=s128-c",
+            "title": "JavaScript Introduction",
+            "videoSelection": "",
+            "videoDescribtion": "",
+            "videoLength": 0,
+            "videoPlayer": ""
+          }
+        ],
+        "quizzes": [
+          {
+            "title": "JavaScript Basics Quiz",
+            "questions": [
+              {
+                "question": "What is JavaScript?",
+                "options": ["A programming language", "A markup language", "A styling language", "None of the above"],
+                "answer": "A programming language"
+              },
+              {
+                "question": "What does HTML stand for?",
+                "options": ["Hyper Text Markup Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language", "None of the above"],
+                "answer": "Hyper Text Markup Language"
+              },
+              {
+                "question": "What is the purpose of CSS?",
+                "options": ["To define the structure of a web page", "To define the behavior of a web page", "To define the presentation of a web page", "None of the above"],
+                "answer": "To define the presentation of a web page"
+              },
+              {
+                "question": "What is the syntax for declaring a variable in JavaScript?",
+                "options": ["var x;", "variable x;", "x = variable;", "None of the above"],
+                "answer": "var x;"
+              },
+              {
+                "question": "Which of the following is NOT a JavaScript data type?",
+                "options": ["String", "Boolean", "Float", "Number"],
+                "answer": "Float"
+              }
+            ]
+          }
+        ],
+        "assignments": [
+          {
+            "title": "JavaScript Basics Assignment 1",
+            "description": "Write a simple JavaScript program to display 'Hello, World!'",
+            "dueDate": "2024-04-15",
+            "submissions": []
+          },
+          {
+            "title": "JavaScript Basics Assignment 2",
+            "description": "Create a webpage with a form to collect user input and display it.",
+            "dueDate": "2024-04-20",
+            "submissions": []
+          }
+        ],
+        "cheatSheets": [
+          {
+            "heading": "JavaScript Cheat Sheet",
+            "subHeading": "JavaScript Syntax and Basics",
+            "content": "mugilan"
+          }
+        ],
+        "links": [],
+        "questions": []
+      }
+    ]
+  }
+  
+}

@@ -1,0 +1,32 @@
+meta {
+  name: edit_free_course --- admin
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:4000/api/edit_free_course/65fd4e284f9617e1d8fbf8a3
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "name":"kani",
+      "describtion" : "sdfjorlf wjkf wjkof wdsf wjk fwf elfjkwlf",
+       
+      "tag":"sdfdssjkdfi",
+      "level":"medium",
+      "course":[{
+          "videoUrl": "String",
+          "title": "String",
+          "videoSelection": "String",
+          "videoDescribtion": "String",
+          "videoLength" : 12,
+          "links" : [{
+              "title":"adfjn wfn",
+              "url":"sdjmcow"
+          }]
+      }]
+  }
+}

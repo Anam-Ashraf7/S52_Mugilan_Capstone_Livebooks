@@ -1,0 +1,179 @@
+meta {
+  name: create free course
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:4000/api/v1/courses/free
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "CSS Basics",
+    "description": "Introduction to Cascading Style Sheets",
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaYxk6nnEGhtR44xkAyFzgD4JVrVarB6bVpw&s",
+    "tag": "css",
+    "level": "Beginner",
+    "module": [
+      {
+        "heading": "CSS Selectors",
+        "subHeading": "Understanding CSS Selectors and Their Usage",
+       "video": {
+          "url": "https://www.youtube.com/watch?v=nSst4-WbEZk&pp=ygUTY3NzIGJveCBtb2RlbCB2aWRlbw%3D%3D"
+        },
+        "quizzes": 
+          {
+            "title": "CSS Selectors Quiz",
+            "questions": [
+              {
+                "question": "Which CSS selector targets all <p> elements?",
+                "options": ["#paragraph", ".paragraph", "paragraph", "p"],
+                "answer": "p"
+              },
+              {
+                "question": "Which CSS selector targets an element with the id 'header'?",
+                "options": ["#header", ".header", "header", "id.header"],
+                "answer": "#header"
+              }
+            ]
+          },
+        "cheatSheets": 
+          {
+            "heading": "CSS Selectors Cheat Sheet",
+            "subHeading": "Commonly Used CSS Selectors and Their Syntax",
+            "content": "This cheat sheet would cover commonly used CSS selectors such as element selectors, class selectors, ID selectors, attribute selectors, pseudo-classes, and pseudo-elements. It would include syntax examples and explanations of how each selector works."
+          },
+        "links": [],
+        "questions": []
+      },
+      {
+        "heading": "CSS Box Model",
+        "subHeading": "Understanding the CSS Box Model",
+  "video": {
+          "url": "https://www.youtube.com/watch?v=nSst4-WbEZk&pp=ygUTY3NzIGJveCBtb2RlbCB2aWRlbw%3D%3D"
+        },
+        "quizzes": 
+          {
+            "title": "CSS Box Model Quiz",
+            "questions": [
+              {
+                "question": "What are the main components of the CSS box model?",
+                "options": ["Margin, Border, Padding, Content", "Border, Padding, Content", "Margin, Padding, Content", "Padding, Content"],
+                "answer": "Margin, Border, Padding, Content"
+              },
+              {
+                "question": "Which CSS property specifies the space around an element's content, outside of any defined borders?",
+                "options": ["margin", "border", "padding", "content"],
+                "answer": "margin"
+              }
+            ]
+          },
+        "cheatSheets": 
+          {
+            "heading": "CSS Box Model Cheat Sheet",
+            "subHeading": "Understanding the CSS Box Model in Depth",
+            "content": "This cheat sheet would explain the CSS box model, including the concepts of margin, border, padding, and content. It would provide guidance on how to use CSS properties to manipulate each component of the box model and create desired layouts."
+          },
+        "links": [],
+        "questions": []
+      },
+      {
+        "heading": "CSS Typography",
+        "subHeading": "Styling Text with CSS",
+  "video": {
+          "url": "https://www.youtube.com/watch?v=nSst4-WbEZk&pp=ygUTY3NzIGJveCBtb2RlbCB2aWRlbw%3D%3D"
+        },
+        "quizzes": 
+          {
+            "title": "CSS Typography Quiz",
+            "questions": [
+              {
+                "question": "Which CSS property is used to control the size of text?",
+                "options": ["font-size", "text-size", "size", "font-style"],
+                "answer": "font-size"
+              },
+              {
+                "question": "What is the default value for the 'font-weight' property in CSS?",
+                "options": ["normal", "bold", "400", "700"],
+                "answer": "normal"
+              }
+            ]
+          },
+        "cheatSheets": 
+          {
+            "heading": "CSS Typography Cheat Sheet",
+            "subHeading": "Complete Guide to Typography in CSS",
+            "content": "This cheat sheet would cover CSS properties related to typography, such as font-family, font-size, font-weight, line-height, text-align, and text-decoration. It would include tips for styling text effectively and creating visually appealing typography on web pages."
+          },
+        "links": [],
+        "questions": []
+      },
+      {
+        "heading": "CSS Flexbox",
+        "subHeading": "Introduction to CSS Flexible Box Layout",
+  "video": {
+          "url": "https://www.youtube.com/watch?v=nSst4-WbEZk&pp=ygUTY3NzIGJveCBtb2RlbCB2aWRlbw%3D%3D"
+        },
+        "quizzes": 
+          {
+            "title": "CSS Flexbox Quiz",
+            "questions": [
+              {
+                "question": "Which CSS property is used to define the direction of the flex container's main axis?",
+                "options": ["flex-direction", "flex-wrap", "justify-content", "align-items"],
+                "answer": "flex-direction"
+              },
+              {
+                "question": "In flexbox, which value of 'align-items' will vertically center the flex items?",
+                "options": ["flex-start", "center", "flex-end", "baseline"],
+                "answer": "center"
+              }
+            ]
+          },
+        "cheatSheets": 
+          {
+            "heading": "CSS Flexbox Cheat Sheet",
+            "subHeading": "Mastering Flexbox Layout in CSS",
+            "content": "This cheat sheet would provide an overview of CSS Flexbox layout, explaining concepts like flex containers, flex items, main axis, cross axis, and alignment properties. It would include examples of common Flexbox patterns and how to use Flexbox for responsive design."
+          },
+        "links": [],
+        "questions": []
+      },
+      {
+        "heading": "CSS Grid Layout",
+        "subHeading": "Exploring CSS Grid for Responsive Web Design",
+  "video": {
+          "url": "https://www.youtube.com/watch?v=nSst4-WbEZk&pp=ygUTY3NzIGJveCBtb2RlbCB2aWRlbw%3D%3D"
+        },
+        "quizzes": 
+          {
+            "title": "CSS Grid Layout Quiz",
+            "questions": [
+              {
+                "question": "Which CSS property is used to define the number of columns in a grid layout?",
+                "options": ["grid-columns", "columns", "grid-template-columns", "grid-row-columns"],
+                "answer": "grid-template-columns"
+              },
+              {
+                "question": "What CSS value is used to create a flexible grid layout that automatically adjusts based on available space?",
+                "options": ["fr", "auto", "grid", "flexible"],
+                "answer": "fr"
+              }
+            ]
+          },
+        "cheatSheets": 
+          {
+            "heading": "CSS Grid Layout Cheat Sheet",
+            "subHeading": "Comprehensive Guide to CSS Grid Layout",
+            "content": "This cheat sheet would cover CSS Grid layout, including concepts like grid containers, grid items, grid lines, grid tracks, and grid areas. It would explain how to create grid layouts with different column and row configurations, as well as how to use Grid for complex page layouts."
+          },
+        "links": [],
+        "questions": []
+      }
+    ]
+  }
+  
+}
