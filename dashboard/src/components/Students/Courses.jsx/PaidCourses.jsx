@@ -20,6 +20,9 @@ function Paidcourses() {
     };
     fetchCourses();
   }, []);
+
+
+  console.log(data)
   return (
     <div>
       <div className="p-3">
@@ -34,7 +37,7 @@ function Paidcourses() {
               className="w-full gap-3 p-3 flex flex-col h-full "
             >
               <div className=" h-[250px] 1000px:h-full w-full ">
-                <div className=" bg-[#87A1EC] border-2 border-black flex flex-col h-full w-full rounded-md  shadow-[6px_6px_3px__rgba(0,0,0,0.7)]">
+                <div className=" bg-[#87A1EC] border-2 border-black flex flex-col h-full w-full rounded-md  shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <div className=" w-full max-h-[60%] h-full bg-yellow-200 rounded-t-lg">
                   <img
                       className="h-full w-full"

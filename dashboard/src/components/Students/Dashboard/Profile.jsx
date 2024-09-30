@@ -18,7 +18,13 @@ function Profile() {
         {/* for the profile pic */}
         <div className=" w-[170px] h-[170px] ">
           <div className="h-full w-full rounded-full">
-            <img className=" rounded-full border-4 border-black" src={auth.avatar?.url || Uploadimage } alt="" />
+            <a href="">
+              <img
+                className=" rounded-full border-4 border-black"
+                src={auth.avatar?.url || Uploadimage}
+                alt=""
+              />
+            </a>
           </div>
         </div>
 

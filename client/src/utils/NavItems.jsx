@@ -39,6 +39,8 @@ function NavItems({ activeItem, isMobile }) {
                 {item.name}
               </span>
             </Link>
+
+            
           ))}
       </div>
 
@@ -46,7 +48,7 @@ function NavItems({ activeItem, isMobile }) {
       {isMobile && (
         <div className="800px:hidden mt-5">
             <div className="w-full text-center py-6">
-                <Link to='/' className=" font-Unbounded text-[24px]">
+                <Link to='/' className=" font-Unbounded  text-[24px]">
                     Hogwarts
                 </Link>
 

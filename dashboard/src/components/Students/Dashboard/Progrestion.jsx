@@ -23,7 +23,7 @@ function Progrestion() {
     <div className="w-[100%] 1000px:w-[50%] h-[100%] 1000px:h-full">
       <div >
         <div>
-          <div className="font-normal text-lg 1200px:text-xl">
+          <div className="font-normal pl-3 text-lg 1200px:text-xl">
             Course Progression
           </div>
         </div>
@@ -35,7 +35,7 @@ function Progrestion() {
               className="w-full gap-3 p-3 flex flex-col h-full "
             >
               <div className=" h-[250px] 1000px:h-full w-full ">
-                <div className=" bg-[#87A1EC] border-2 border-black flex flex-col h-full w-full rounded-md  shadow-[6px_6px_3px__rgba(0,0,0,0.7)]">
+                <div className=" bg-[#87A1EC] border-2 border-black flex flex-col h-full w-full rounded-md  shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <div className=" w-full max-h-[60%] h-full bg-yellow-200 rounded-t-lg">
                   <img
                       className="h-full w-full"

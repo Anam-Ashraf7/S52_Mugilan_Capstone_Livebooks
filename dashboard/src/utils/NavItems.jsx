@@ -44,7 +44,7 @@ export const navItemsDataAdmin = [
 ];
 
 function NavItems({ activeItem, isMobile }) {
-  const userRole = useSelector((state) => state.auth.user.role);
+  const userRole = useSelector((state) => state.auth.user?.role);
   const [navItemsData, setNavItem] = useState(navItemsDataUser);
   const [roleWidthSize, setRoleWidthSize] = useState(false);
   useEffect(() => {

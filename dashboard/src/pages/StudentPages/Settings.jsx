@@ -104,9 +104,9 @@ function Settings() {
         keywords="question,course,change the name, name, change the password, password, change the image, image, password, name, list of mentors, mentores, hogwatrs, school, learning free, paid , freecourses answer, queries, answered, lesson, html, css, js , search"
       />
       <ToastContainer />
-      <div className="flex justify-center">
+      <div className="flex justify-center border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2">
         <div className=" w-[20vw] ">
-          <div className="py-2 px-4 border cursor-pointer">Edit Profile</div>
+          <div className="py-2 px-4 border-black cursor-pointer border-b-2">Edit Profile</div>
           <div
             className="py-2 px-4 border cursor-pointer"
             onClick={logoutHandler}
@@ -116,11 +116,11 @@ function Settings() {
         </div>
       </div>
 
-      <div className=" w-full border-2 shadow-[5px_5px_2px__rgba(0,0,0,0.7)] rounded-md border-black h-[90%] p-5">
+      <div className=" w-full flex justify-center gap- flex-col border-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]  border-black  p-5 ">
         <div className="w-full flex justify-center items-center flex-col">
           <img
             src={user.avatar?.url || Uploadimage}
-            className="w-[200px] h-[200px] 1000px:w-[300px] 1000px:h-[300px] rounded-full"
+            className="w-24 h-24 1500px:w-36 1500px:h-36 rounded-full"
             alt=""
           />
           <input
@@ -132,7 +132,7 @@ function Settings() {
           />
           <label
             htmlFor="avatar-upload"
-            className="mt-3 text-sm p-2 bg-[#FE90E8] rounded-md border border-black shadow-[4px_4px_1px__rgba(0,0,0,0.3)] cursor-pointer"
+            className="mt-3 text-sm p-2 bg-[#FE90E8] rounded-md border border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] cursor-pointer"
           >
             {loadingAvatar ? "Uploading..." : "Change Image"}
           </label>
@@ -163,7 +163,7 @@ function Settings() {
                 <button
                   type="submit"
                   disabled={isSubmitting || loadingUserInfo}
-                  className="mt-3 text-sm p-2 bg-[#FE90E8] rounded-md border border-black shadow-[4px_4px_1px__rgba(0,0,0,0.3)]"
+                  className="mt-3 text-sm p-2 bg-[#FE90E8] rounded-md border border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
                 >
                   {loadingUserInfo ? "Changing..." : "Change Name"}
                 </button>
@@ -215,7 +215,7 @@ function Settings() {
               <button
                 type="submit"
                 disabled={isSubmitting || loadingChangePass}
-                className="mt-3 text-sm p-2 bg-[#FE90E8] rounded-md border border-black shadow-[4px_4px_1px__rgba(0,0,0,0.3)]"
+                className="mt-3 text-sm p-2 bg-[#FE90E8] rounded-md border border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
               >
                 {loadingChangePass ? "Changing..." : "Change Password"}
               </button>

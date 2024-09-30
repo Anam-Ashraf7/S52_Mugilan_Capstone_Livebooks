@@ -34,7 +34,7 @@ function Header({ open, setOpen, activeItem }) {
             <div className=" 800px:mb-10">
               <Link
                 to="/"
-                className="text-[25px] font-Unbounded font-[500] text-black 800px:text-white"
+                className="text-[25px] font-Unbounded font-[500] text-white 800px:text-white"
               >
                 Hogwarts
               </Link>
