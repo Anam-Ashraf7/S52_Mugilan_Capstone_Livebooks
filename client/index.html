@@ -1,19 +1,53 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-    <!--  importing fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <!--  importing fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKJKGTZVTY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-RKJKGTZVTY', {
+      'link_attribution': true, // Enable enhanced link attribution
+      'anonymize_ip': true,     // Anonymize IP for privacy
+      'page_path': window.location.pathname, // Set default page path
+      'page_title': document.title            // Set default page title
+    });
+
+    // Optional: Use the visibilitychange event to track page visibility
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') {
+        gtag('event', 'page_visible', {
+          'event_category': 'engagement',
+          'event_label': 'Page Visibility'
+        });
+      } else {
+        gtag('event', 'page_hidden', {
+          'event_category': 'engagement',
+          'event_label': 'Page Hidden'
+        });
+      }
+    });
+  </script>
+  <!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
