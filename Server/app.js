@@ -12,6 +12,7 @@ import notificationRoutes from "./routes/notification.routes.js";
 import analyticsRoutes from "./routes/analytics.routes.js";
 import layoutRoutes from "./routes/layout.router.js";
 import calenderEventRoute from "./routes/calender.routes.js"; 
+import {limiter} from "./middlewar/rateLimit.js";
 // body parser
 
 const allowedOrigins = [
@@ -30,6 +31,7 @@ const corsOptions = {
   credentials: true
 };
 
+app.use(limiter);
 app.use(cors(corsOptions));
 app.use(express.json());
 
