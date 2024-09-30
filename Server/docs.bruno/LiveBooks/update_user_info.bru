@@ -1,0 +1,17 @@
+meta {
+  name: update_user_info
+  type: http
+  seq: 8
+}
+
+put {
+  url: http://localhost:4000/api/update_user_info
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "name":"kani"
+  }
+}

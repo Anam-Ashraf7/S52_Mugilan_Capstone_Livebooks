@@ -1,0 +1,18 @@
+meta {
+  name: activating the user
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:4000/api/activate_user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "activation_token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Im5hbWUiOiJtdWdpbGFuIiwiZW1haWwiOiJtdWdpbGFua2FuaTk1MUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCR5Rnd4OWg1TjJQajVCVDB1RzNHcW5lZmVEbE14NElZT0VETVVHeXdHUW5IYXlZRVJPU1ZnNiJ9LCJhY3RpdmF0aW9uQ29kZSI6IjUwMjIiLCJpYXQiOjE3MTAzMzAyMTEsImV4cCI6MTcxMDMzMDUxMX0.LQPlD9dXs8NxI2_OCBSngC-cMhg18YejJCkPYVVK-gA",
+      "activation_code":"502"
+  }
+}

@@ -1,0 +1,29 @@
+meta {
+  name: create static_course --- admin
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:4000/api/static_course
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "name": "mugilan",
+      "phase": "2",
+      "price": 123,
+      "estimatedPrice": 1233,
+      "language":"tamil",
+      "review": {
+          "user" :{
+              "name":"mugilan"
+          },
+          "rating": 3
+  
+      },
+      "type":"normal"
+  }
+}

@@ -1,0 +1,17 @@
+meta {
+  name: User buying Courses
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:4000/api/v1/creating-order
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+     "landingpageId" :"65fd4a08949132283227179f"
+  }
+}
