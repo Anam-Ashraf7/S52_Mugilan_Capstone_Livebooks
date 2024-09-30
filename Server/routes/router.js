@@ -453,7 +453,7 @@ router.put(
       const user = await UserModel.findById(userId);
 
       if (avatar && user) {
-        let myCloud; // Declare myCloud variable outside the if-else block
+        let myCloud;
 
         if (user.avatar && user.avatar.public_id) {
           await cloudinary.v2.uploader.destroy(user.avatar.public_id);
@@ -467,7 +467,7 @@ router.put(
 
         user.avatar = {
           public_id: myCloud.public_id,
-          url: myCloud.secure_url, // Check the actual property name in the myCloud object
+          url: myCloud.secure_url, 
         };
 
       }

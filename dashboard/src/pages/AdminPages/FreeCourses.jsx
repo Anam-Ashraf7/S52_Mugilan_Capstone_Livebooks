@@ -94,7 +94,7 @@ function FreeCourses() {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{course.name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{course.description}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{course.level}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{course.module.length}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{course.modules.length}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <button className="text-indigo-600 hover:text-indigo-900">Edit</button>
                   </td>

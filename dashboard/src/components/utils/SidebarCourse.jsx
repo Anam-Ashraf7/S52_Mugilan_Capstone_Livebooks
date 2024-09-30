@@ -17,6 +17,7 @@ function SidebarCourse({ handleContentClick }) {
   useEffect(() => {
     if (isSuccess) {
       setCourseData(data.course);
+      console.log(data.course);
     } else if (error) {
       console.log(error);
     }
@@ -44,8 +45,8 @@ function SidebarCourse({ handleContentClick }) {
         </div>
         <div>
           {courseData &&
-            courseData.module &&
-            courseData.module.map((items, index) => (
+            courseData.modules &&
+            courseData.modules.map((items, index) => (
               <Accordion key={index} type="single" collapsible>
                 <AccordionItem value="item-1" className="border-t p-2">
                   <AccordionTrigger onClick={() => handleModuleClick(items._id, items.heading)}>

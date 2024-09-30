@@ -96,10 +96,15 @@ routes.post(
   authorizeRole("admin"),
   CatchAsyncError(async (req, res, next) => {
     const courseData = req.body;
+    console.log(courseData)
     try {
       // upload thumbnail
       const data = req.body;
+      console.log("data",data)
+      console.log("data",data.modules.quizzes)
+
       const thumbnail = data.thumbnail || undefined;
+      
 
       if (thumbnail) {
         const result = await cloudinary.v2.uploader.upload(req.body.thumbnail, {
@@ -116,8 +121,9 @@ routes.post(
         ...courseData,
         thumbnail,
       });
+      console.log("cource", course)
 
-      const courses = await freeCourse.find();
+      const courses = await paidCourse.find();
 
       await redis.set("allPaidCourse", JSON.stringify(courses));
 
@@ -126,7 +132,9 @@ routes.post(
         message: "Paid course created successfully",
         course,
       });
+
     } catch (err) {
+      console.log(err.message)
       return next(new ErrorHandler(err.message, 500));
     }
   })

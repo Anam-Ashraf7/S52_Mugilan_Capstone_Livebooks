@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLazyGetPaidCoursesQuery } from "../../../../redux/features/courses/courseApi";
+import { useSelector } from "react-redux";
 
 function Tasks() {
+  const [paidCourses, setPaidCourses] = useState([]);
+  const courses = useSelector((state) => state.auth.user.courses);
+  const [getBoughtCourses, { isSuccess, data, error }] =
+    useLazyGetPaidCoursesQuery();
+    useEffect(() => {
+      const fetchCourses = async () => {
+        const promises = courses.map((course) => getBoughtCourses(course._id));
+        const responses = await Promise.all(promises);
+        const fetchedCourses = responses.map((response) => response.data.course);
+        setPaidCourses(fetchedCourses);
+      };
+      fetchCourses();
+    }, []);
   return (
     <div className=" w-[100%] 1000px:w-[50%] h-[50%] 1000px:h-full mb-4 1000px:mb-0">
     <div className=" p-3  h-full w-full ">

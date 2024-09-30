@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/utils/Header";
-import Askquestion from "./components/Students/questions/Askquestion"
+import Askquestion from "./components/Students/questions/Askquestion";
 import {
   BrowserRouter,
+  Navigate,
   Outlet,
   Route,
   Routes,
@@ -32,10 +33,9 @@ function DashboardLayout() {
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth.user);
 
-
   return (
-    <div className=" 800px:flex h-screen">
-      <div className=" w-[330px]">
+    <div className="800px:flex h-screen">
+      <div className="w-[330px]">
         <Header
           open={open}
           setOpen={setOpen}
@@ -43,7 +43,7 @@ function DashboardLayout() {
           setActiveItem={setActiveItem}
         />
       </div>
-      <div className=" w-[100%] 800px:mt-0 1000px:h-[100%] h-auto 800px:min-h-screen bg-[#1A1A1A] p-1 800px:p-2 1000px:p-3 ">
+      <div className="w-[100%] 800px:mt-0 1000px:h-[100%] h-auto 800px:min-h-screen bg-[#1A1A1A] p-1 800px:p-2 1000px:p-3 ">
         <div className="w-full h-full bg-[#FFFBF7] rounded-md">
           <Outlet />
         </div>
@@ -54,19 +54,22 @@ function DashboardLayout() {
 
 function App() {
   const { data: userData, isLoading } = useLoadUserQuery({});
+  const user = useSelector((state) => state.auth?.user);
+  const [role, setRole] = useState(null);
 
-  const [role, setRole] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const userRole = useSelector((state) => state.auth.user?.role);
+  // Update role based on user
   useEffect(() => {
-    if (userRole == "admin") {
-      setRole(true);
+    if (user?.role) {
+      setRole(user.role);
+      setIsLoggedIn(true);
     } else {
-      if (userRole == "student") {
-        setRole(false);
-      }
+      setIsLoggedIn(false);
     }
-  });
+  }, [user]);
+
+  // console.log("userdata", userData);
 
   if (isLoading) {
     return <Loading />; // Render loading component while data is loading
@@ -76,26 +79,39 @@ function App() {
     <BrowserRouter>
       <div className="w-screen 2xl:max-w-[1650px] font-Unbounded m-auto">
         <Routes>
-          {role ? (
-            <Route path="/" element={<DashboardLayout />}>
-              <Route index element={<Dashboard />} />
-              <Route path="/admin/free-courses" element={<FreeCourses />} />
-              <Route path="/admin/paid-courses" element={<PaidCourses />} />
-              <Route path="/admin/mentors" element={<Mentors />} />
-              <Route path="/admin/Students" element={<Students />} />
-              <Route path="/create/freeCourse" element={<CreateCourse />} />
-              <Route path="/create/PaidCourse" element={<CreateCourse />} />
-              <Route path="admin/queries" element={<AllQueries />} />
-              <Route path="/settings" element={<Settings />} />
-            </Route>
+          {isLoggedIn ? (
+            <>
+              {role === "admin" ? (
+                <Route path="/" element={<DashboardLayout />}>
+                  <Route index element={<Dashboard />} />
+                  <Route path="/admin/free-courses" element={<FreeCourses />} />
+                  <Route path="/admin/paid-courses" element={<PaidCourses />} />
+                  <Route path="/admin/mentors" element={<Mentors />} />
+                  <Route path="/admin/students" element={<Students />} />
+                  <Route path="/create/freeCourse" element={<CreateCourse />} />
+                  <Route path="/create/paidCourse" element={<CreateCourse />} />
+                  <Route path="/admin/queries" element={<AllQueries />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Route>
+              ) : (
+                <Route path="/" element={<DashboardLayout />}>
+                  <Route index element={<Dashboard />} />
+                  <Route path="/courses" element={<Courses />} />
+                  <Route path="/queries" element={<Questions />} />
+                  <Route path="/askquestion/:id" element={<Askquestion />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/login" element={<Navigate to="/" />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Route>
+              )}
+            </>
           ) : (
-            <Route path="/" element={<DashboardLayout />}>
-              <Route index element={<Dashboard />} />
-              <Route path="/courses" element={<Courses />} />
-              <Route path="/queries" element={<Questions />} />
-              <Route path="/askquestion/:id" element={<Askquestion />} />
-              <Route path="/settings" element={<Settings />} />
-            </Route>
+            <>
+              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<Navigate to="/login" />} />
+              <Route path="*" element={<Navigate to="/login" />} />
+            </>
           )}
           <Route path="/course" element={<CourseLayout />}>
             <Route path=":id" element={<CoursesContent />} />
@@ -104,7 +120,8 @@ function App() {
               element={<CoursesContent />}
             />
           </Route>
-          <Route path="/login" element={<Login />} />
+
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Routes>
       </div>
     </BrowserRouter>

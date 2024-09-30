@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import {
   useCreateFreeCourseMutation,
@@ -126,6 +127,7 @@ function CreateCourse() {
     });
     setCurrentModuleIndex(null);
   };
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -139,12 +141,9 @@ function CreateCourse() {
     }
 
     if (currentPathname === "/create/freeCourse") {
-
       if (createFreeCourseSuccess) {
-
         navigate("/admin/free-courses");
         toast.success("Course added successfully");
-
       } else if (createFreeCourseError) {
         toast.error("Course addition failed");
       }
@@ -158,12 +157,12 @@ function CreateCourse() {
     courseDetails,
   ]);
 
-  const handleFinishButton = (courseData) => {
+  const handleFinishButton = () => {
     if (currentPathname === "/create/freeCourse") {
-      createFreeCourse(courseData);
+      createFreeCourse(courseDetails);
     }
     if (currentPathname === "/create/paidCourse") {
-      createPaidCourse(courseData);
+      createPaidCourse(courseDetails);
     }
   };
 

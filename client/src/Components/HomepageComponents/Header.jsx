@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import NavItems from "../../utils/NavItems"
-import HambarganMenu from "../../assets/Icons/Hamburger Menu.svg"
-
+import NavItems from "../../utils/NavItems";
+import HambarganMenu from "../../assets/Icons/Hamburger Menu.svg";
+import Cookies from 'js-cookie';
 function Header({ open, setOpen, activeItem }) {
+  const accessToken = Cookies.get("access_Token"); // Check the correct cookie name
+  const refreshToken = Cookies.get("refresh_Token");
+
+  console.log('Access Token:', accessToken);
+  console.log('Refresh Token:', refreshToken);
   const [active, setActive] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -17,12 +22,12 @@ function Header({ open, setOpen, activeItem }) {
     });
   }
   const handleClose = (e) => {
-    if(e.target.id === "screen"){
-        {
-            setOpenSidebar(false)
-        }
+    if (e.target.id === "screen") {
+      {
+        setOpenSidebar(false);
+      }
     }
-  }
+  };
 
   return (
     <div className="w-full relative">
@@ -35,70 +40,71 @@ function Header({ open, setOpen, activeItem }) {
       >
         <div className="w-[95%] 800px:w-[92%] max-w-[1600px] m-auto  h-full flex items-center ">
           <div className=" w-full h-[60px] flex items-center justify-between">
-
-
-          {/* this is for logo */}
+            {/* this is for logo */}
 
             <div>
               <Link
                 to="/"
-                className="text-[25px] font-Unbounded font-[500] text-black p-3 "
+                className="text-[25px] font-Unbounded font-[500]   p-3 "
               >
                 Hogwarts
               </Link>
             </div>
 
-          {/* this is for nav items */}
+            {/* this is for nav items */}
 
             <div>
               <div className="flex item-center p-3">
                 <NavItems activeItem={activeItem} isMobile={false} />
                 {/* For mobile */}
                 <div className="800px:hidden">
-                    <img className="w-7 h-7 cursor-pointer" src={HambarganMenu} alt="" onClick={() => setOpenSidebar(true)}/>
-
-
+                  <img
+                    className="w-7 h-7 cursor-pointer"
+                    src={HambarganMenu}
+                    alt=""
+                    onClick={() => setOpenSidebar(true)}
+                  />
                 </div>
               </div>
             </div>
 
-
-          {/* this is for login and get started */}
+            {/* this is for login and get started */}
 
             <div className="h-[80px] hidden 800px:block">
-                <div className=" font-Unbounded flex items-center h-full ">
-                    <div className="px-4 h-[60px] border-x border-black flex items-center ">
-                        <Link to='/login'>
-                            Login
-                        </Link>
-                    </div>
-                    <div className="px-4 hidden 1000px:flex border-r border-black text-white h-[60px]  text-center  items-center  bg-black">
-                        <Link to='/getstarted'>
-                            Get Started
-                        </Link>
-                    </div>
-
+              <div className=" font-Unbounded flex items-center h-full ">
+                <div className="px-4 h-[60px] border-x border-black flex items-center ">
+                  {accessToken ? (
+                    <Link to="/profile" className="text-blue-500">
+                      User Profile
+                    </Link>
+                  ) : (
+                    <Link to="/login" className="text-blue-500">
+                      Login
+                    </Link>
+                  )}
                 </div>
+                <div className="px-4 hidden 1000px:flex border-r border-black text-white h-[60px]  text-center  items-center  bg-black">
+                  <Link to="/getstarted">Get Started</Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-
         {/* mobile sidebar */}
 
-        {
-            openSidebar && (
-                <div className="fixed w-full h-screen left-0 z-[99999] bg-[#00000024] " onClick={handleClose} id="screen">
-                    <div className=" w-[70%] fixed z-[999999999] h-screen bg-white top-0 right-0 ">
-                        <NavItems activeItem={activeItem} isMobile={true} />
-                        
-
-                    </div>
-                </div>
-            )
-        }
+        {openSidebar && (
+          <div
+            className="fixed w-full h-screen left-0 z-[99999] bg-[#00000024] "
+            onClick={handleClose}
+            id="screen"
+          >
+            <div className=" w-[70%] fixed z-[999999999] h-screen bg-white top-0 right-0 ">
+              <NavItems activeItem={activeItem} isMobile={true} />
+            </div>
+          </div>
+        )}
       </div>
-
     </div>
   );
 }
